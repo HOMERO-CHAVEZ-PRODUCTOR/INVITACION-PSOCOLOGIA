@@ -10,7 +10,7 @@
     <style>
         :root {
             /* Paleta Cromática Definida */
-            --base-green: #6B8E23;   
+            --base-green: #607119;   
             --ivory-cold: #f8f9f5;      
             --silver: #C0C0C2;          
             --silver-light: #E5E4E2;    
@@ -363,7 +363,7 @@
             line-height: 2.1;
         }
 
-        /* --- CONTROLES DE MÚSICA (music.mp3) --- */
+        /* --- CONTROLES DE MÚSICA --- */
         #music-btn {
             position: fixed; 
             bottom: 50px; 
@@ -456,7 +456,7 @@
             <div class="bloque-ubicacion">
                 <p style="font-weight: 300; letter-spacing: 7px; margin-bottom: 20px;">A LAS 18:00 HRS</p>
                 <h3 class="serif">Hda. del Coecillo</h3>
-                <a href="https://www.google.com/maps/place/Hda.+del+Coecillo,+Delegaci%C3%B3n+Santa+Mar%C3%ADa+Totoltepec,+50246+Santa+Mar%C3%ADa+Totoltepec,+M%C3%A9x./@19.291339,-99.5759444,1030m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85cd8aec9f0ded4f:0xb6d0081c5722c4ab!8m2!3d19.291339!4d-99.5733695!16s%2Fg%2F1tycw_2y?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="boton-ubicacion">VER UBICACIÓN</a>
+                <a href="https://maps.app.goo.gl/qZ7Dk184EXonveKC7" target="_blank" class="boton-ubicacion">VER UBICACIÓN</a>
             </div>
         </div>
     </section>
@@ -581,7 +581,7 @@
                 </div>
                 <div class="item-recomendacion">
                     <strong>KIT Y GUARDARROPA</strong><br>
-                    No hay servicio de guardarropa. Su kit de graduado será entregado en la entrada.
+                    No hay servicio de guardarropa. El kit de graduado será entregado en la entrada.
                 </div>
             </div>
         </div>
@@ -608,7 +608,6 @@
             }
         }
 
-        // Activación inteligente por interacción
         document.body.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
@@ -616,7 +615,6 @@
             }
         }, { once: true });
 
-        // Garantizar Video
         window.addEventListener('load', () => {
             vid.play().catch(e => console.log("Video manual"));
         });
