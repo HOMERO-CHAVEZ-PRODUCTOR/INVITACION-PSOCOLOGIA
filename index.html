@@ -9,7 +9,7 @@
 
     <style>
         :root {
-            /* Paleta de Colores Oficial */
+            /* Paleta Cromática Definida */
             --base-green: #6B8E23;   
             --ivory-cold: #f8f9f5;      
             --silver: #C0C0C2;          
@@ -18,25 +18,25 @@
             --dark-text: #1a1a1a;
             --white: #ffffff;
             --overlay-dark: rgba(0, 0, 0, 0.55);
-            --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-premium: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* --- RESET Y ESTILOS BASE --- */
+        /* --- ARQUITECTURA BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             background-color: var(--ivory-cold); 
             font-family: 'Inter', sans-serif; 
             color: var(--dark-text); 
-            line-height: 1.8; 
+            line-height: 1.9; 
             overflow-x: hidden;
             position: relative;
         }
 
         h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; }
 
-        /* --- SISTEMA DE ESTRELLAS DECORATIVAS GIGANTES --- */
-        .stars-background {
+        /* --- DECORACIÓN: ESTRELLAS GIGANTES (estrella.png) --- */
+        .stars-canvas {
             position: absolute;
             top: 0;
             left: 0;
@@ -47,35 +47,33 @@
             overflow: hidden;
         }
 
-        .star-element {
+        .giant-star {
             position: absolute;
             background-image: url('estrella.png');
             background-size: contain;
             background-repeat: no-repeat;
-            opacity: 0.65;
-            filter: drop-shadow(0 0 25px rgba(192, 192, 194, 0.5));
-            transition: var(--transition-smooth);
+            opacity: 0.7;
+            filter: drop-shadow(0 0 30px rgba(192, 192, 194, 0.6));
         }
 
-        /* --- ANIMACIONES DE ALTA GAMA --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
+        /* --- ANIMACIONES CINEMATOGRÁFICAS --- */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(60px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes floating {
+        @keyframes floatStar {
             0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        .animate-up { opacity: 0; animation: fadeInUp 1.4s ease forwards; }
-        .delay-1 { animation-delay: 0.4s; }
-        .delay-2 { animation-delay: 0.8s; }
-        .floating { animation: floating 6s infinite ease-in-out; }
+        .reveal { opacity: 0; animation: revealUp 1.5s ease forwards; }
+        .delay-portada { animation-delay: 0.5s; }
+        .floating-star { animation: floatStar 8s infinite ease-in-out; }
 
-        /* --- MOTOR DE VIDEO DE FONDO --- */
-        .video-engine {
+        /* --- MOTOR VISUAL DE FONDO --- */
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -85,7 +83,7 @@
             z-index: 0;
         }
 
-        .video-engine video {
+        .video-background video {
             min-width: 100%;
             min-height: 100%;
             width: auto;
@@ -97,8 +95,8 @@
             object-fit: cover;
         }
 
-        /* --- SECCIÓN 1: PORTADA --- */
-        .hero-section {
+        /* --- SECCIÓN 1: PORTADA HERO --- */
+        .hero-layout {
             position: relative;
             min-height: 100vh;
             display: flex; 
@@ -106,519 +104,522 @@
             justify-content: center; 
             color: var(--white); 
             text-align: center;
-            padding: 40px;
+            padding: 50px;
             overflow: hidden;
         }
         
-        .hero-overlay {
+        .hero-dimmer {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: var(--overlay-dark);
             z-index: 1;
         }
 
-        .hero-content { 
+        .hero-inner { 
             position: relative; 
             z-index: 2; 
-            max-width: 1000px;
+            max-width: 1100px;
         }
 
-        .hero-content h1 { 
-            font-size: clamp(3.5rem, 12vw, 7rem); 
-            text-shadow: 4px 4px 40px rgba(0,0,0,1); 
-            margin-bottom: 25px;
+        .hero-inner h1 { 
+            font-size: clamp(3.8rem, 13vw, 7.5rem); 
+            text-shadow: 5px 5px 45px rgba(0,0,0,1); 
+            margin-bottom: 20px;
             font-weight: 400;
-            letter-spacing: -2px;
+            letter-spacing: -3px;
         }
 
-        .hero-subtitle { 
-            font-size: 1.5rem; 
-            letter-spacing: 12px; 
+        .hero-label { 
+            font-size: 1.6rem; 
+            letter-spacing: 14px; 
             text-transform: uppercase; 
-            margin-bottom: 60px;
+            margin-bottom: 70px;
             color: var(--silver-light);
             font-weight: 300;
         }
 
-        .hero-line { 
-            width: 250px; 
+        .divider-plateado { 
+            width: 300px; 
             height: 2px; 
             background: linear-gradient(90deg, transparent, var(--silver), transparent); 
-            margin: 50px auto; 
+            margin: 60px auto; 
         }
 
-        .hero-quote { 
+        .cita-graduacion { 
             font-style: italic; 
-            font-size: 1.5rem; 
-            margin-top: 80px; 
-            opacity: 0.95; 
-            line-height: 1.8;
+            font-size: 1.6rem; 
+            margin-top: 90px; 
+            opacity: 0.98; 
+            line-height: 1.9;
             font-weight: 300;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* --- SECCIÓN 2: INVITACIÓN --- */
-        .invitation-section {
-            padding: 160px 20px;
+        /* --- SECCIÓN 2: LA INVITACIÓN --- */
+        .seccion-invitacion {
+            padding: 180px 20px;
             background-color: var(--base-green);
             color: var(--white);
             text-align: center;
             position: relative;
             z-index: 10;
-            border-top: 8px solid var(--silver);
-            border-bottom: 8px solid var(--silver);
+            border-top: 10px solid var(--silver);
+            border-bottom: 10px solid var(--silver);
         }
 
-        .invitation-section h2 { 
-            font-size: clamp(2.8rem, 8vw, 4.5rem); 
-            margin-bottom: 40px; 
+        .seccion-invitacion h2 { 
+            font-size: clamp(3rem, 9vw, 4.8rem); 
+            margin-bottom: 45px; 
             font-weight: 400;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
         }
 
-        .invitation-text { 
-            max-width: 850px; 
-            margin: 0 auto 60px; 
-            font-size: 1.4rem; 
+        .texto-invitacion { 
+            max-width: 900px; 
+            margin: 0 auto 70px; 
+            font-size: 1.5rem; 
             font-weight: 300;
-            line-height: 2.2;
+            line-height: 2.4;
         }
         
-        .date-container {
+        .contenedor-fecha {
             display: inline-flex;
-            gap: 50px;
-            font-size: clamp(3.5rem, 11vw, 5rem);
+            gap: 60px;
+            font-size: clamp(3.8rem, 12vw, 5.5rem);
             font-family: 'Playfair Display', serif;
-            padding: 40px 80px;
-            margin-bottom: 60px;
-            border-top: 2px solid var(--silver);
-            border-bottom: 2px solid var(--silver);
+            padding: 45px 90px;
+            margin-bottom: 70px;
+            border-top: 3px solid var(--silver);
+            border-bottom: 3px solid var(--silver);
             color: var(--silver-light);
         }
 
-        .location-wrapper {
-            margin-top: 60px;
+        .bloque-ubicacion {
+            margin-top: 80px;
         }
 
-        .location-wrapper h3 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .bloque-ubicacion h3 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
             color: var(--silver-light);
             font-weight: 400;
         }
 
-        /* DISEÑO DEL BOTÓN RECUPERADO */
-        .action-button {
+        /* DISEÑO DE BOTÓN PLATEADO PREMIUM */
+        .boton-ubicacion {
             display: inline-block;
-            margin-top: 50px;
-            padding: 22px 65px;
-            border: 1px solid var(--white);
+            margin-top: 60px;
+            padding: 25px 75px;
+            border: 2px solid var(--white);
             color: var(--white);
             text-decoration: none;
-            letter-spacing: 4px;
-            font-weight: 600;
+            letter-spacing: 5px;
+            font-weight: 700;
             text-transform: uppercase;
-            transition: var(--transition-smooth);
-            font-size: 1.1rem;
+            transition: var(--transition-premium);
+            font-size: 1.2rem;
             position: relative;
-            z-index: 20;
+            z-index: 25;
             background: transparent;
         }
 
-        .action-button:hover { 
+        .boton-ubicacion:hover { 
             background: var(--silver-light); 
             color: var(--base-green); 
             border-color: var(--silver-light);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
         }
 
-        /* --- SECCIÓN 3: ITINERARIO --- */
-        .itinerary-section {
-            padding: 160px 20px;
-            max-width: 1000px;
+        /* --- SECCIÓN 3: EL ITINERARIO --- */
+        .seccion-itinerario {
+            padding: 180px 20px;
+            max-width: 1100px;
             margin: 0 auto;
             position: relative;
             z-index: 10;
         }
 
-        .itinerary-section h2 { 
+        .seccion-itinerario h2 { 
             text-align: center; 
-            font-size: clamp(3.5rem, 9vw, 5rem); 
+            font-size: clamp(3.8rem, 10vw, 5.5rem); 
+            color: var(--base-green); 
+            margin-bottom: 110px; 
+            font-style: italic;
+        }
+
+        .lista-itinerario {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fila-itinerario {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 0;
+            border-bottom: 1px solid rgba(132, 132, 130, 0.4);
+            transition: var(--transition-premium);
+        }
+
+        .fila-itinerario:hover {
+            padding-left: 30px;
+            border-bottom: 2px solid var(--base-green);
+            background: rgba(107, 142, 35, 0.03);
+        }
+
+        .info-evento {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nombre-evento {
+            font-weight: 700;
+            letter-spacing: 6px;
+            font-size: 1.4rem;
+            color: var(--base-green);
+            text-transform: uppercase;
+        }
+
+        .descripcion-evento {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 300;
+            margin-top: 8px;
+        }
+
+        .hora-evento {
+            font-size: 1.5rem;
+            color: var(--silver-dark);
+            font-weight: 400;
+            min-width: 150px;
+            text-align: right;
+        }
+
+        /* --- SECCIÓN 4: DRESS CODE --- */
+        .seccion-dresscode {
+            padding: 180px 20px;
+            background-color: var(--base-green);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border-top: 5px solid var(--silver);
+        }
+
+        .seccion-dresscode h2 { 
+            font-size: clamp(3.2rem, 8vw, 4.8rem); 
+            margin-bottom: 60px; 
+            font-style: italic;
+        }
+
+        .tarjeta-dresscode {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 90px 60px;
+            border: 3px solid var(--silver);
+            font-size: 2.2rem;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            color: var(--silver-light);
+            background: rgba(255,255,255,0.04);
+        }
+
+        /* --- SECCIÓN 5: RECOMENDACIONES --- */
+        .seccion-recomendaciones {
+            background-color: var(--white);
+            padding: 180px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .seccion-recomendaciones h3 { 
+            font-size: clamp(3rem, 7vw, 4rem); 
             color: var(--base-green); 
             margin-bottom: 100px; 
             font-style: italic;
         }
 
-        .itinerary-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .itinerary-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(132, 132, 130, 0.3);
-            transition: var(--transition-smooth);
-        }
-
-        .itinerary-row:hover {
-            padding-left: 20px;
-            border-bottom: 1px solid var(--base-green);
-            background: rgba(107, 142, 35, 0.02);
-        }
-
-        .event-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .event-name {
-            font-weight: 700;
-            letter-spacing: 5px;
-            font-size: 1.3rem;
-            color: var(--base-green);
-            text-transform: uppercase;
-        }
-
-        .event-desc {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 300;
-            margin-top: 5px;
-        }
-
-        .event-time {
-            font-size: 1.4rem;
-            color: var(--silver-dark);
-            font-weight: 400;
-        }
-
-        /* --- SECCIÓN 4: DRESSCODE --- */
-        .dresscode-section {
-            padding: 160px 20px;
-            background-color: var(--base-green);
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            z-index: 10;
-            border-top: 4px solid var(--silver);
-        }
-
-        .dresscode-section h2 { 
-            font-size: clamp(3rem, 7vw, 4.5rem); 
-            margin-bottom: 50px; 
-            font-style: italic;
-        }
-
-        .dresscode-card {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 50px;
-            border: 2px solid var(--silver);
-            font-size: 2rem;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            color: var(--silver-light);
-            background: rgba(255,255,255,0.03);
-            position: relative;
-        }
-
-        /* --- SECCIÓN 5: RECOMENDACIONES --- */
-        .rec-section {
-            background-color: var(--white);
-            padding: 160px 20px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .rec-section h3 { 
-            font-size: clamp(2.8rem, 6vw, 3.8rem); 
-            color: var(--base-green); 
-            margin-bottom: 90px; 
-            font-style: italic;
-        }
-
-        .rec-grid {
-            max-width: 1200px;
+        .rejilla-recomendaciones {
+            max-width: 1300px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 70px;
             text-align: left;
         }
 
-        .rec-item { 
-            padding: 45px; 
-            border-left: 5px solid var(--silver); 
-            font-size: 1.15rem; 
+        .item-recomendacion { 
+            padding: 55px; 
+            border-left: 6px solid var(--silver); 
+            font-size: 1.25rem; 
             font-weight: 300;
             background-color: var(--ivory-cold);
-            box-shadow: 15px 15px 40px rgba(0,0,0,0.04);
-            line-height: 2;
+            box-shadow: 20px 20px 50px rgba(0,0,0,0.05);
+            line-height: 2.1;
         }
 
-        /* --- CONTROLES Y REPRODUCTOR --- */
-        #music-toggle {
+        /* --- CONTROLES DE MÚSICA (music.mp3) --- */
+        #music-btn {
             position: fixed; 
             bottom: 50px; 
             right: 50px; 
-            width: 75px; 
-            height: 75px;
+            width: 85px; 
+            height: 85px;
             background: var(--base-green); 
-            border: 4px solid var(--silver);
+            border: 5px solid var(--silver);
             border-radius: 50%; 
-            z-index: 2000;
+            z-index: 2500;
             display: flex; 
             align-items: center; 
             justify-content: center; 
             cursor: pointer;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
+            box-shadow: 0 20px 45px rgba(0,0,0,0.5); 
             color: white; 
-            font-size: 2rem;
-            transition: var(--transition-smooth);
+            font-size: 2.2rem;
+            transition: var(--transition-premium);
         }
 
-        #music-toggle:hover { transform: scale(1.15) rotate(10deg); background: var(--silver-dark); }
+        #music-btn:hover { transform: scale(1.18) rotate(12deg); background: var(--silver-dark); }
 
-        /* --- FOOTER --- */
+        /* --- PIE DE PÁGINA --- */
         footer { 
             text-align: center; 
-            padding: 100px 20px; 
+            padding: 120px 20px; 
             background-color: var(--base-green); 
             color: var(--silver-light); 
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
             border-top: 1px solid var(--silver);
         }
 
-        /* --- RESPONSIVE ENGINE --- */
+        /* --- MOTOR DE RESPUESTA MÓVIL --- */
         @media (max-width: 768px) {
-            .date-container { font-size: 2.6rem; gap: 25px; padding: 25px 40px; }
-            .itinerary-row { flex-direction: column; text-align: center; gap: 15px; padding: 40px 0; }
-            .rec-grid { grid-template-columns: 1fr; }
-            .dresscode-card { font-size: 1.5rem; padding: 50px 20px; }
-            .hero-content h1 { font-size: 4rem; }
-            .invitation-section { padding: 100px 20px; }
+            .contenedor-fecha { font-size: 2.8rem; gap: 30px; padding: 30px 40px; }
+            .fila-itinerario { flex-direction: column; text-align: center; gap: 20px; padding: 50px 0; }
+            .hora-evento { text-align: center; font-size: 1.8rem; }
+            .rejilla-recomendaciones { grid-template-columns: 1fr; }
+            .tarjeta-dresscode { font-size: 1.6rem; padding: 60px 25px; }
+            .hero-inner h1 { font-size: 4.2rem; }
+            .boton-ubicacion { padding: 22px 50px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="stars-background">
-        <div class="star-element floating" style="top: 5%; left: -150px; width: 600px; height: 600px; transform: rotate(15deg);"></div>
-        <div class="star-element" style="top: 25%; right: -200px; width: 750px; height: 750px; transform: rotate(-15deg); opacity: 0.5;"></div>
-        <div class="star-element floating" style="top: 50%; left: -100px; width: 500px; height: 500px; transform: rotate(25deg);"></div>
-        <div class="star-element" style="top: 75%; right: -150px; width: 800px; height: 800px; transform: rotate(40deg); opacity: 0.4;"></div>
-        <div class="star-element floating" style="top: 1500px; left: 5%; width: 450px; height: 450px; opacity: 0.3;"></div>
-        <div class="star-element" style="top: 2200px; right: 10%; width: 600px; height: 600px; transform: rotate(-20deg);"></div>
-        <div class="star-element floating" style="bottom: 200px; left: -80px; width: 550px; height: 550px; opacity: 0.4;"></div>
+    <div class="stars-canvas">
+        <div class="giant-star floating-star" style="top: 4%; left: -200px; width: 650px; height: 650px; transform: rotate(10deg);"></div>
+        <div class="giant-star" style="top: 22%; right: -250px; width: 850px; height: 850px; transform: rotate(-15deg); opacity: 0.5;"></div>
+        <div class="giant-star floating-star" style="top: 48%; left: -150px; width: 550px; height: 550px; transform: rotate(30deg); opacity: 0.4;"></div>
+        <div class="giant-star" style="top: 70%; right: -200px; width: 900px; height: 900px; transform: rotate(40deg); opacity: 0.5;"></div>
+        <div class="giant-star floating-star" style="top: 1600px; left: 2%; width: 500px; height: 500px; opacity: 0.3;"></div>
+        <div class="giant-star" style="top: 2300px; right: 5%; width: 700px; height: 700px; transform: rotate(-25deg);"></div>
+        <div class="giant-star floating-star" style="bottom: 150px; left: -100px; width: 600px; height: 600px; opacity: 0.5;"></div>
     </div>
 
-    <audio id="gradAudio" loop preload="auto">
+    <audio id="audioFondo" loop preload="auto">
         <source src="music.mp3" type="audio/mpeg">
     </audio>
-    <div id="music-toggle" onclick="togglePlayback()">🔇</div>
+    <div id="music-btn" onclick="gestionarMusica()">🔇</div>
 
-    <header class="hero-section">
-        <div class="video-engine">
-            <video autoplay muted loop playsinline id="mainVideo">
+    <header class="hero-layout">
+        <div class="video-background">
+            <video autoplay muted loop playsinline id="vidHero">
                 <source src="BACKV.mp4" type="video/mp4">
             </video>
         </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content animate-up">
-            <p class="hero-subtitle">Licenciatura en</p>
+        <div class="hero-dimmer"></div>
+        <div class="hero-inner reveal delay-portada">
+            <p class="hero-label">Licenciatura en</p>
             <h1>Psicología</h1>
-            <div class="hero-line"></div>
-            <p class="hero-quote">
-                "El desafío no consiste en acomodarse a la realidad, sino en transformarla." [cite: 4]<br>
-                — Ignacio Martín-Baró [cite: 4]
+            <div class="divider-plateado"></div>
+            <p class="cita-graduacion">
+                "El desafío no consiste en acomodarse a la realidad, sino en transformarla."<br>
+                — Ignacio Martín-Baró
             </p>
         </div>
     </header>
 
-    <section class="invitation-section">
-        <div class="animate-up">
+    <section class="seccion-invitacion">
+        <div class="reveal">
             <h2>Generación 2025</h2>
-            <p class="invitation-text">
-                La Facultad de Psicología tiene el honor de invitarlos a la cena de graduación[cite: 3]. Un momento para celebrar el esfuerzo, la constancia y el cierre de un capítulo inolvidable en nuestras vidas. Acompáñenos el día: [cite: 3]
+            <p class="texto-invitacion">
+                La Facultad de Psicología tiene el honor de invitarlos a celebrar el cierre de este gran ciclo académico. Es un momento para honrar el esfuerzo individual, la amistad forjada en las aulas y el inicio de una nueva etapa profesional. Los esperamos el día:
             </p>
-            <div class="date-container">
-                <span>28</span> <span>03</span> <span>26</span> [cite: 8, 9, 10]
+            <div class="contenedor-fecha">
+                <span>28</span> <span>03</span> <span>26</span>
             </div>
-            <div class="location-wrapper">
-                <p style="font-weight: 300; letter-spacing: 6px; margin-bottom: 15px;">A LAS 18:00 HRS [cite: 11]</p>
-                <h3 class="serif">Hda. del Coecillo [cite: 7]</h3>
-                <a href="https://www.google.com/maps/place/Hda.+del+Coecillo,+Delegaci%C3%B3n+Santa+Mar%C3%ADa+Totoltepec,+50246+Santa+Mar%C3%ADa+Totoltepec,+M%C3%A9x./@19.291339,-99.5759444,1030m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85cd8aec9f0ded4f:0xb6d0081c5722c4ab!8m2!3d19.291339!4d-99.5733695!16s%2Fg%2F1tycw_2y?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="action-button">VER UBICACIÓN [cite: 7]</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="itinerary-section">
-        <div class="animate-up">
-            <h2>Itinerario de Gala [cite: 12]</h2>
-            <div class="itinerary-grid">
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">RECEPCIÓN [cite: 13]</span>
-                        <span class="event-desc">Bienvenida de graduados e invitados de honor.</span>
-                    </div>
-                    <span class="event-time">06:00 PM [cite: 13]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">TECLADO EN VIVO [cite: 15]</span>
-                        <span class="event-desc">Ambientación musical de bienvenida.</span>
-                    </div>
-                    <span class="event-time">07:00 PM [cite: 15]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">CENA DE GALA [cite: 14]</span>
-                        <span class="event-desc">Servicio de banquete internacional.</span>
-                    </div>
-                    <span class="event-time">08:00 PM [cite: 14]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">PALABRAS DE DESPEDIDA [cite: 16]</span>
-                        <span class="event-desc">Discursos de la generación y autoridades.</span>
-                    </div>
-                    <span class="event-time">08:00 PM [cite: 16]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">BRINDIS DE HONOR [cite: 17]</span>
-                        <span class="event-desc">Protocolo solemne y brindis generacional.</span>
-                    </div>
-                    <span class="event-time">08:05 PM [cite: 17]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">SE ABRE PISTA [cite: 18]</span>
-                        <span class="event-desc">Inauguración del baile oficial.</span>
-                    </div>
-                    <span class="event-time">08:10 PM [cite: 18]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">CARRITO DE SHOTS [cite: 19]</span>
-                        <span class="event-desc">Experiencia interactiva de coctelería.</span>
-                    </div>
-                    <span class="event-time">09:00 PM [cite: 19]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">TORNAFIESTA [cite: 20]</span>
-                        <span class="event-desc">Degustación de chilaquiles tradicionales.</span>
-                    </div>
-                    <span class="event-time">11:00 PM [cite: 20]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">BANDA EN VIVO [cite: 21]</span>
-                        <span class="event-desc">Show musical estelar.</span>
-                    </div>
-                    <span class="event-time">12:00 AM [cite: 21]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">FIN DEL EVENTO [cite: 22]</span>
-                        <span class="event-desc">Clausura oficial de la celebración.</span>
-                    </div>
-                    <span class="event-time">03:00 AM [cite: 22]</span>
-                </div>
-                <div class="itinerary-row">
-                    <div class="event-info">
-                        <span class="event-label">DESALOJO [cite: 23]</span>
-                        <span class="event-desc">Salida de invitados del recinto.</span>
-                    </div>
-                    <span class="event-time">03:00 - 04:00 AM [cite: 23]</span>
-                </div>
+            <div class="bloque-ubicacion">
+                <p style="font-weight: 300; letter-spacing: 7px; margin-bottom: 20px;">A LAS 18:00 HRS</p>
+                <h3 class="serif">Hda. del Coecillo</h3>
+                <a href="https://www.google.com/maps/place/Hda.+del+Coecillo,+Delegaci%C3%B3n+Santa+Mar%C3%ADa+Totoltepec,+50246+Santa+Mar%C3%ADa+Totoltepec,+M%C3%A9x./@19.291339,-99.5759444,1030m/data=!3m2!1e3!4b1!4m6!3m5!1s0x85cd8aec9f0ded4f:0xb6d0081c5722c4ab!8m2!3d19.291339!4d-99.5733695!16s%2Fg%2F1tycw_2y?entry=ttu&g_ep=EgoyMDI2MDMwNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="boton-ubicacion">VER UBICACIÓN</a>
             </div>
         </div>
     </section>
 
-    <section class="dresscode-section">
-        <div class="animate-up">
-            <h2>Dress Code [cite: 32]</h2>
-            <div class="dresscode-card">
-                Etiqueta Formal [cite: 33]
+    <section class="seccion-itinerario">
+        <div class="reveal">
+            <h2>Itinerario</h2>
+            <div class="lista-itinerario">
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">RECEPCIÓN</span>
+                        <span class="descripcion-evento">Bienvenida oficial de graduados y sus acompañantes.</span>
+                    </div>
+                    <span class="hora-evento">06:00 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">TECLADO EN VIVO</span>
+                        <span class="descripcion-evento">Música ambiental para el cóctel de bienvenida.</span>
+                    </div>
+                    <span class="hora-evento">07:00 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">CENA DE GALA</span>
+                        <span class="descripcion-evento">Servicio de banquete gourmet especial.</span>
+                    </div>
+                    <span class="hora-evento">08:00 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">PALABRAS DE DESPEDIDA</span>
+                        <span class="descripcion-evento">Discursos conmemorativos de la generación.</span>
+                    </div>
+                    <span class="hora-evento">08:00 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">BRINDIS DE HONOR</span>
+                        <span class="descripcion-evento">Momento solemne para celebrar el éxito alcanzado.</span>
+                    </div>
+                    <span class="hora-evento">08:05 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">SE ABRE PISTA</span>
+                        <span class="descripcion-evento">Apertura del baile con el vals tradicional.</span>
+                    </div>
+                    <span class="hora-evento">08:10 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">CARRITO DE SHOTS</span>
+                        <span class="descripcion-evento">Barra interactiva durante la celebración.</span>
+                    </div>
+                    <span class="hora-evento">09:00 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">TORNAFIESTA</span>
+                        <span class="descripcion-evento">Cena de trasnochadores con chilaquiles típicos.</span>
+                    </div>
+                    <span class="hora-evento">11:00 PM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">BANDA EN VIVO</span>
+                        <span class="descripcion-evento">Música estelar para bailar toda la noche.</span>
+                    </div>
+                    <span class="hora-evento">12:00 AM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">FIN DEL EVENTO</span>
+                        <span class="descripcion-evento">Cierre oficial de la graduación.</span>
+                    </div>
+                    <span class="hora-evento">03:00 AM</span>
+                </div>
+                <div class="fila-itinerario">
+                    <div class="info-evento">
+                        <span class="nombre-evento">DESALOJO ORDENADO</span>
+                        <span class="descripcion-evento">Salida de invitados de las instalaciones.</span>
+                    </div>
+                    <span class="hora-evento">03:00 AM</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="rec-section">
-        <div class="animate-up">
-            <h3>Recomendaciones [cite: 24]</h3>
-            <div class="rec-grid">
-                <div class="rec-item">
-                    <strong>CLIMA Y PROTECCIÓN [cite: 25]</strong><br>
-                    Se sugiere tomar precauciones e ir abrigados ante las condiciones térmicas del lugar. [cite: 25]
+    <section class="seccion-dresscode">
+        <div class="reveal">
+            <h2>Dress Code</h2>
+            <div class="tarjeta-dresscode">
+                Etiqueta Formal
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-recomendaciones">
+        <div class="reveal">
+            <h3>Recomendaciones</h3>
+            <div class="rejilla-recomendaciones">
+                <div class="item-recomendacion">
+                    <strong>CLIMA Y PROTECCIÓN</strong><br>
+                    Le sugerimos encarecidamente tomar precauciones e ir abrigados ante el clima del lugar.
                 </div>
-                <div class="rec-item">
-                    <strong>ACCESO ÚNICO [cite: 26]</strong><br>
-                    Considere que solo se cuenta con un acceso habilitado para la entrada del establecimiento. [cite: 26]
+                <div class="item-recomendacion">
+                    <strong>ACCESO ÚNICO</strong><br>
+                    Considere que el recinto cuenta con un solo acceso habilitado para la entrada.
                 </div>
-                <div class="rec-item">
-                    <strong>VALET PARKING [cite: 27]</strong><br>
-                    Servicio externo gestionado por la empresa HC, con un costo adicional por vehículo. [cite: 27]
+                <div class="item-recomendacion">
+                    <strong>VALET PARKING</strong><br>
+                    Servicio externo proporcionado por la empresa HC, con costo adicional por auto.
                 </div>
-                <div class="rec-item">
-                    <strong>ÁREAS DE FUMAR [cite: 28]</strong><br>
-                    Le informamos que las áreas destinadas para fumar se encuentran en el exterior. [cite: 28]
+                <div class="item-recomendacion">
+                    <strong>ÁREAS DE FUMAR</strong><br>
+                    Recordamos que el consumo de tabaco está restringido exclusivamente a las áreas exteriores.
                 </div>
-                <div class="rec-item">
-                    <strong>MENÚS ESPECIALES [cite: 29]</strong><br>
-                    Solicite menús veganos, vegetarianos o por alergias con su comité al elegir su mesa. [cite: 29]
+                <div class="item-recomendacion">
+                    <strong>MENÚS ESPECIALES</strong><br>
+                    Si requiere menú vegano, vegetariano o por alergias, solicítelo directamente con su comité.
                 </div>
-                <div class="rec-item">
-                    <strong>KIT Y GUARDARROPA [cite: 31]</strong><br>
-                    No hay guardarropa. El kit de graduado se entregará directamente en la recepción. [cite: 31]
+                <div class="item-recomendacion">
+                    <strong>KIT Y GUARDARROPA</strong><br>
+                    No hay servicio de guardarropa. Su kit de graduado será entregado en la entrada.
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p class="serif" style="font-size: 2.2rem; margin-bottom: 15px;">Psicología [cite: 2]</p>
+        <p class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Psicología</p>
         <p>GENERACIÓN 2025 — ITTOL</p>
     </footer>
 
     <script>
-        const audio = document.getElementById('gradAudio');
-        const btn = document.getElementById('music-toggle');
-        const video = document.getElementById('mainVideo');
+        const audio = document.getElementById('audioFondo');
+        const btnIcono = document.getElementById('music-btn');
+        const vid = document.getElementById('vidHero');
 
-        function togglePlayback() {
+        function gestionarMusica() {
             if (audio.paused) {
                 audio.play().then(() => {
-                    btn.innerHTML = "🔊";
-                }).catch(err => console.log("Error audio:", err));
+                    btnIcono.innerHTML = "🔊";
+                }).catch(err => console.error("Error Audio:", err));
             } else {
                 audio.pause();
-                btn.innerHTML = "🔇";
+                btnIcono.innerHTML = "🔇";
             }
         }
 
-        // Activación por interacción
+        // Activación inteligente por interacción
         document.body.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
-                btn.innerHTML = "🔊";
+                btnIcono.innerHTML = "🔊";
             }
         }, { once: true });
 
-        window.onload = () => {
-            video.play().catch(e => console.log("Video manual"));
-        };
+        // Garantizar Video
+        window.addEventListener('load', () => {
+            vid.play().catch(e => console.log("Video manual"));
+        });
     </script>
 
 </body>
